@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0b0f1a; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #334155; }
-    
-    /* Animasi halus untuk filter kartu */
+    ::-webkit-scrollbar-track { background: #0A1228; }
+    ::-webkit-scrollbar-thumb { background: #D4A843; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #e8c06a; }
+
     .cert-card {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -26,42 +25,57 @@
       overflow: hidden;
       border: none;
     }
+
+    .cert-card:hover {
+      border-color: rgba(212, 168, 67, 0.55) !important;
+    }
+
+    .filter-btn-inactive:hover {
+      border-color: #D4A843 !important;
+      color: #F0ECD8 !important;
+    }
+
+    #searchCertificate:focus {
+      border-color: #D4A843 !important;
+      box-shadow: 0 0 0 1px #D4A843 !important;
+      outline: none;
+    }
   </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen font-sans">
+<body class="min-h-screen font-sans" style="background:#0F1A35; color:#F0ECD8;">
 
   <!-- ================= PROFILE SECTION ================= -->
   <section class="max-w-7xl mx-auto px-4 py-8">
-    <div class="bg-gray-900 rounded-2xl border border-gray-800 p-6 md:p-8 shadow-xl">
+    <div class="rounded-2xl border p-6 md:p-8 shadow-xl" style="background:#1A2744; border-color:#2E4070;">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        
+
         <!-- Kiri: Foto & Biodata Ringkas -->
-        <div class="flex flex-col items-center text-center lg:text-left lg:items-start border-b border-gray-800 lg:border-b-0 lg:border-r lg:pr-8 pb-6 lg:pb-0">
-          <div class="w-32 h-32 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-1 mb-4 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-            <div class="w-full h-full bg-gray-950 rounded-full flex items-center justify-center overflow-hidden">
+        <div class="flex flex-col items-center text-center lg:text-left lg:items-start pb-6 lg:pb-0 border-b lg:border-b-0 lg:border-r lg:pr-8" style="border-color:#2E4070;">
+          <div class="w-32 h-32 rounded-full p-1 mb-4" style="background: linear-gradient(135deg, #D4A843, #F0C96A); box-shadow: 0 0 20px rgba(212,168,67,0.25);">
+            <div class="w-full h-full rounded-full flex items-center justify-center overflow-hidden" style="background:#0F1A35;">
               <img src="img/foto-profile2.jpg" alt="Ardha Tri Setyo Budi" class="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110" onclick="openLightbox(this)">
             </div>
           </div>
-          
-          <h1 class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Ardha Tri Setyo Budi</h1>
-          <p class="text-sm text-blue-400 font-medium mt-1">Writer & Creative | Translator & Interpreter</p>
-          
-          <div class="mt-6 space-y-3 text-left w-full text-xs text-gray-400">
-            <div class="flex items-center justify-between border-b border-gray-800/50 pb-2">
-              <span class="font-medium text-gray-500">Tempat, Tanggal Lahir</span>
-              <span class="text-gray-200">Blitar, 3 Desember 2007</span>
+
+          <h1 class="text-2xl font-extrabold bg-clip-text text-transparent" style="background-image: linear-gradient(to right, #D4A843, #F0C96A); -webkit-background-clip: text;">Ardha Tri Setyo Budi</h1>
+          <p class="text-sm font-medium mt-1" style="color:#D4A843;">Writer & Creative | Translator & Interpreter</p>
+
+          <div class="mt-6 space-y-3 text-left w-full text-xs" style="color:#A8B8CC;">
+            <div class="flex items-center justify-between pb-2" style="border-bottom: 1px solid #2E4070;">
+              <span class="font-medium" style="color:#7A90A8;">Tempat, Tanggal Lahir</span>
+              <span style="color:#F0ECD8;">Blitar, 3 Desember 2007</span>
             </div>
-            <div class="flex items-center justify-between border-b border-gray-800/50 pb-2">
-              <span class="font-medium text-gray-500">Status</span>
-              <span class="text-gray-200">Pelajar / Mahasiswa</span>
+            <div class="flex items-center justify-between pb-2" style="border-bottom: 1px solid #2E4070;">
+              <span class="font-medium" style="color:#7A90A8;">Status</span>
+              <span style="color:#F0ECD8;">Pelajar / Mahasiswa</span>
             </div>
-            <div class="flex items-center justify-between border-b border-gray-800/50 pb-2">
-              <span class="font-medium text-gray-500">Lokasi</span>
-              <span class="text-gray-200">Blitar, Jawa Timur</span>
+            <div class="flex items-center justify-between pb-2" style="border-bottom: 1px solid #2E4070;">
+              <span class="font-medium" style="color:#7A90A8;">Lokasi</span>
+              <span style="color:#F0ECD8;">Blitar, Jawa Timur</span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="font-medium text-gray-500">Bahasa</span>
-              <span class="text-gray-200">Indonesia, English, Japanese</span>
+              <span class="font-medium" style="color:#7A90A8;">Bahasa</span>
+              <span style="color:#F0ECD8;">Indonesia, English, Japanese</span>
             </div>
           </div>
         </div>
@@ -69,38 +83,38 @@
         <!-- Kanan: Tentang Saya & Riwayat Pendidikan -->
         <div class="lg:col-span-2 space-y-6">
           <div>
-            <h3 class="text-lg font-bold text-gray-200 mb-2 border-b border-gray-800 pb-1">Tentang Saya</h3>
-            <p class="text-sm text-gray-400 leading-relaxed">
+            <h3 class="text-lg font-bold mb-2 pb-1" style="color:#F0ECD8; border-bottom: 1px solid #2E4070;">Tentang Saya</h3>
+            <p class="text-sm leading-relaxed" style="color:#A8B8CC;">
               Saya adalah seorang lulusan Teknik Komputer dan Jaringan yang memiliki ketertarikan mendalam di bidang infrastruktur jaringan IT, linguistik, serta penerjemahan bahasa. Berfokus pada pengembangan diri melalui kompetisi sains dan bahasa, saya berdedikasi untuk terus menyelaraskan kemampuan logika teknis lewat kreativitas komunikasi global.
             </p>
           </div>
 
           <div>
-            <h3 class="text-lg font-bold text-gray-200 mb-4 border-b border-gray-800 pb-1">Riwayat Pendidikan</h3>
-            <div class="relative border-l border-gray-800 ml-2 space-y-6">
+            <h3 class="text-lg font-bold mb-4 pb-1" style="color:#F0ECD8; border-bottom: 1px solid #2E4070;">Riwayat Pendidikan</h3>
+            <div class="relative ml-2 space-y-6" style="border-left: 1px solid #2E4070;">
               <div class="relative pl-6">
-                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
-                <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wider">2023 — 2026</span>
-                <h4 class="font-bold text-sm text-gray-200 mt-0.5">SMK Negeri 1 Doko</h4>
-                <p class="text-xs text-gray-500">Teknik Komputer dan Jaringan (TKJ)</p>
+                <div class="absolute w-3 h-3 rounded-full -left-[7px] top-1.5" style="background:#D4A843; box-shadow: 0 0 8px rgba(212,168,67,0.5);"></div>
+                <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#D4A843;">2023 — 2026</span>
+                <h4 class="font-bold text-sm mt-0.5" style="color:#F0ECD8;">SMK Negeri 1 Doko</h4>
+                <p class="text-xs" style="color:#7A90A8;">Teknik Komputer dan Jaringan (TKJ)</p>
               </div>
               <div class="relative pl-6">
-                <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1.5"></div>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">2020 — 2023</span>
-                <h4 class="font-bold text-sm text-gray-300 mt-0.5">SMP Negeri 1 Doko</h4>
-                <p class="text-xs text-gray-500">Pendidikan Dasar Menengah</p>
+                <div class="absolute w-3 h-3 rounded-full -left-[7px] top-1.5" style="background:#2E4070;"></div>
+                <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#7A90A8;">2020 — 2023</span>
+                <h4 class="font-bold text-sm mt-0.5" style="color:#C8D8E8;">SMP Negeri 1 Doko</h4>
+                <p class="text-xs" style="color:#7A90A8;">Pendidikan Dasar Menengah</p>
               </div>
               <div class="relative pl-6">
-                <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1.5"></div>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">2014 — 2020</span>
-                <h4 class="font-bold text-sm text-gray-300 mt-0.5">UPT SD Negeri 2 Bumirejo</h4>
-                <p class="text-xs text-gray-500">Pendidikan Dasar</p>
+                <div class="absolute w-3 h-3 rounded-full -left-[7px] top-1.5" style="background:#2E4070;"></div>
+                <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#7A90A8;">2014 — 2020</span>
+                <h4 class="font-bold text-sm mt-0.5" style="color:#C8D8E8;">UPT SD Negeri 2 Bumirejo</h4>
+                <p class="text-xs" style="color:#7A90A8;">Pendidikan Dasar</p>
               </div>
               <div class="relative pl-6">
-                <div class="absolute w-3 h-3 bg-gray-700 rounded-full -left-[7px] top-1.5"></div>
-                <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">2012 — 2014</span>
-                <h4 class="font-bold text-sm text-gray-300 mt-0.5">TK Ceria Bumirejo</h4>
-                <p class="text-xs text-gray-500">Pendidikan Anak Usia Dini</p>
+                <div class="absolute w-3 h-3 rounded-full -left-[7px] top-1.5" style="background:#2E4070;"></div>
+                <span class="text-[10px] font-bold uppercase tracking-wider" style="color:#7A90A8;">2012 — 2014</span>
+                <h4 class="font-bold text-sm mt-0.5" style="color:#C8D8E8;">TK Ceria Bumirejo</h4>
+                <p class="text-xs" style="color:#7A90A8;">Pendidikan Anak Usia Dini</p>
               </div>
             </div>
           </div>
@@ -113,317 +127,332 @@
   <!-- ================= GALLERY SECTION ================= -->
   <div class="max-w-7xl mx-auto px-4 py-12">
     <header class="text-center mb-12">
-        <h1 class="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            Koleksi Sertifikat & Prestasi
-        </h1>
-        <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-            Dokumentasi perjalanan belajar dan pencapaian saya dalam bidang IT, Sastra, dan pengembangan diri.
-        </p>
+      <h1 class="text-4xl font-extrabold mb-4 bg-clip-text text-transparent" style="background-image: linear-gradient(to right, #D4A843, #F0C96A); -webkit-background-clip: text;">
+        Koleksi Sertifikat & Prestasi
+      </h1>
+      <p class="max-w-2xl mx-auto mb-8 text-sm md:text-base" style="color:#A8B8CC;">
+        Dokumentasi perjalanan belajar dan pencapaian saya dalam bidang IT, Sastra, dan pengembangan diri.
+      </p>
 
-        <!-- FITUR BARU: Kolom Pencarian -->
-        <div class="max-w-md mx-auto mb-8 relative">
-          <input type="text" id="searchCertificate" placeholder="Cari sertifikat (cth: Emas, TOEIC, UKK)..." 
-                 class="w-full px-5 py-2.5 bg-gray-900 border border-gray-800 rounded-full text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
-        </div>
+      <!-- Kolom Pencarian -->
+      <div class="max-w-md mx-auto mb-8 relative">
+        <input type="text" id="searchCertificate" placeholder="Cari sertifikat (cth: Emas, TOEIC, UKK)..."
+               class="w-full px-5 py-2.5 rounded-full text-sm transition-all"
+               style="background:#1A2744; border: 1px solid #2E4070; color:#F0ECD8;">
+      </div>
 
-        <!-- BARISAN TOMBOL FILTER -->
-        <div class="flex flex-wrap justify-center gap-3">
-          <button data-target="all" class="filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-blue-600 text-white border border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Semua Prestasi</button>
-          <button data-target="english" class="filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-gray-900 text-gray-400 border border-gray-800 hover:border-gray-700 hover:text-gray-200 transition-all duration-300">English</button>
-          <button data-target="academic" class="filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-gray-900 text-gray-400 border border-gray-800 hover:border-gray-700 hover:text-gray-200 transition-all duration-300">Akademik</button>
-          <button data-target="others" class="filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-gray-900 text-gray-400 border border-gray-800 hover:border-gray-700 hover:text-gray-200 transition-all duration-300">Lainnya</button>
-        </div>
+      <!-- Tombol Filter -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <button data-target="all" class="filter-btn px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300"
+                style="background:#D4A843; color:#1A2744; border: 1px solid #D4A843; box-shadow: 0 0 15px rgba(212,168,67,0.35);">Semua Prestasi</button>
+        <button data-target="english" class="filter-btn filter-btn-inactive px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300"
+                style="background:#1A2744; color:#7A90A8; border: 1px solid #2E4070;">English</button>
+        <button data-target="academic" class="filter-btn filter-btn-inactive px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300"
+                style="background:#1A2744; color:#7A90A8; border: 1px solid #2E4070;">Akademik</button>
+        <button data-target="others" class="filter-btn filter-btn-inactive px-5 py-2 text-xs font-semibold rounded-full transition-all duration-300"
+                style="background:#1A2744; color:#7A90A8; border: 1px solid #2E4070;">Lainnya</button>
+      </div>
     </header>
 
     <!-- Gallery Grid -->
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      
+
       <!-- Item 1 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat5.jpg" alt="Sertifikat 1" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Peraih Medali Emas ISC 2025</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">28 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Meraih medali emas di bidang Bahasa Inggris pada ajang Olimpiade Sains Tingkat Nasional pada tanggal 28 September 2025 di Yogyakarta yang bertajuk: INDONESIAN SCIENCE COMPETITION (ISC) 2025</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Peraih Medali Emas ISC 2025</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">28 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Meraih medali emas di bidang Bahasa Inggris pada ajang Olimpiade Sains Tingkat Nasional pada tanggal 28 September 2025 di Yogyakarta yang bertajuk: INDONESIAN SCIENCE COMPETITION (ISC) 2025</p>
           </div>
         </div>
         <div class="p-4 pt-0">
-          <a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">
+          <a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2 transition-colors" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">
             Lihat Dokumen Asli &rarr;
           </a>
         </div>
       </div>
 
       <!-- Item 2 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat6.jpg" alt="Sertifikat 2" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Peraih Medali Perak ISC 2025</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">28 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Meraih medali perak di bidang Sosiologi pada ajang Olimpiade Sains Tingkat Nasional pada tanggal 28 September 2025 di Yogyakarta yang bertajuk: INDONESIAN SCIENCE COMPETITION (ISC) 2025</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Peraih Medali Perak ISC 2025</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">28 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Meraih medali perak di bidang Sosiologi pada ajang Olimpiade Sains Tingkat Nasional pada tanggal 28 September 2025 di Yogyakarta yang bertajuk: INDONESIAN SCIENCE COMPETITION (ISC) 2025</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 3 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat9.jpg" alt="Sertifikat 3" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Juara 1 ENGLISH OLYMPIAD 2024</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">12 November 2024</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Juara 1 bidang lomba English Olympiad BIG SMK JATIM CUP 1 Tingkat Kab. Blitar yang diselenggarakan oleh MGMP Bahasa Inggris SMK Provinsi Jawa Timur bekerja sama dengan UNIVERSITAS BRAWIJAYA, Malang</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Juara 1 ENGLISH OLYMPIAD 2024</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">12 November 2024</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Juara 1 bidang lomba English Olympiad BIG SMK JATIM CUP 1 Tingkat Kab. Blitar yang diselenggarakan oleh MGMP Bahasa Inggris SMK Provinsi Jawa Timur bekerja sama dengan UNIVERSITAS BRAWIJAYA, Malang</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 4 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat2.jpg" alt="Sertifikat 4" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Juara 1 ENGLISH OLYMPIAD 2025</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">17 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Juara 1 bidang lomba English Olympiad BIG SMK JATIM CUP 2 Tingkat Kab. Blitar yang diselenggarakan oleh MGMP Bahasa Inggris SMK Provinsi Jawa Timur bekerja sama dengan UNIVERSITAS NEGERI SURABAYA, Surabaya</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Juara 1 ENGLISH OLYMPIAD 2025</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">17 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Juara 1 bidang lomba English Olympiad BIG SMK JATIM CUP 2 Tingkat Kab. Blitar yang diselenggarakan oleh MGMP Bahasa Inggris SMK Provinsi Jawa Timur bekerja sama dengan UNIVERSITAS NEGERI SURABAYA, Surabaya</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 5 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat11.jpg" alt="Sertifikat 5" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Peserta ISC 2025 (Olimpiade Bahasa Inggris)</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">28 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Aktif Olimpiade Tingkat Nasional Jenjang SMA/SMK/Sederajat Olimpiade Indonesia Science Competition 2025</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Peserta ISC 2025 (Olimpiade Bahasa Inggris)</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">28 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Aktif Olimpiade Tingkat Nasional Jenjang SMA/SMK/Sederajat Olimpiade Indonesia Science Competition 2025</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 6 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat12.jpg" alt="Sertifikat 6" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Peserta ISC 2025 (Olimpiade Sosiologi)</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">28 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Aktif Olimpiade Tingkat Nasional Jenjang SMA/SMK/Sederajat Olimpiade Indonesia Science Competition 2025</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Peserta ISC 2025 (Olimpiade Sosiologi)</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">28 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Aktif Olimpiade Tingkat Nasional Jenjang SMA/SMK/Sederajat Olimpiade Indonesia Science Competition 2025</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 7 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat10.jpg" alt="Sertifikat 7" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Peserta Finalis ENGLISH OLYMPIAD 2024</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">12 November 2024</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Finalis Perlombaan English Olympiad BIG SMK JATIM CUP 1</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Peserta Finalis ENGLISH OLYMPIAD 2024</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">12 November 2024</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Finalis Perlombaan English Olympiad BIG SMK JATIM CUP 1</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 8 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat8.jpg" alt="Sertifikat 8" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Peserta Finalis ENGLISH OLYMPIAD 2025</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">17 September 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Finalis Perlombaan English Olympiad BIG SMK JATIM CUP 2</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Peserta Finalis ENGLISH OLYMPIAD 2025</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">17 September 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Finalis Perlombaan English Olympiad BIG SMK JATIM CUP 2</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 9 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat4.jpg" alt="Sertifikat 9" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Semi Finalis ESCOlympics 2024</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">23 Juni 2024</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Semi Finalis ESCOlympics 2024 Bidang Storytelling</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Semi Finalis ESCOlympics 2024</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">23 Juni 2024</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Semi Finalis ESCOlympics 2024 Bidang Storytelling</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 10 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat7.jpg" alt="Sertifikat 10" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat INTERNSHIP GM ACADEMY</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">2 Desember 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Internship/Magang/PKL Di GM Academy Kota Malang Selama 6 Bulan (14 Juli-2 Desember) Sebagai Digital Marketing Strategist</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat INTERNSHIP GM ACADEMY</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">2 Desember 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Internship/Magang/PKL Di GM Academy Kota Malang Selama 6 Bulan (14 Juli-2 Desember) Sebagai Digital Marketing Strategist</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 11 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat13.jpg" alt="Sertifikat 11" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat SKILLS TO SUCCEED</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">14 Februari 2026</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Skills To Succeed Telah Mengikuti Program Pelatihan Kesiapan Kerja dan Green Mindset Pada Jenjang SMK/SMA yang Diselenggarakan Oleh Yayasan Save The Children (YSTC)</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat SKILLS TO SUCCEED</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">14 Februari 2026</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Skills To Succeed Telah Mengikuti Program Pelatihan Kesiapan Kerja dan Green Mindset Pada Jenjang SMK/SMA yang Diselenggarakan Oleh Yayasan Save The Children (YSTC)</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 12 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat1.jpg" alt="Sertifikat 12" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Seminar Budaya Kerja Industri</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">19 Januari 2026</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Aktif Telah Mengikuti Kegiatan Acara Seminar dan Sosialisasi Tentang Budaya Kerja Industri yang Diselenggarakan Oleh AKABI</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Seminar Budaya Kerja Industri</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">19 Januari 2026</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Aktif Telah Mengikuti Kegiatan Acara Seminar dan Sosialisasi Tentang Budaya Kerja Industri yang Diselenggarakan Oleh AKABI</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 13 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat3.jpg" alt="Sertifikat 13" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Peserta Aktif Sosialisasi LP3I</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">8 Desember 2025</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Aktif Telah Mengikuti Kegiatan Program Acara Sosialisasi Kesiapan Karir yang Diselenggarakan Oleh Lembaga Kampus LP3I Kota Malang</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Peserta Aktif Sosialisasi LP3I</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">8 Desember 2025</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Aktif Telah Mengikuti Kegiatan Program Acara Sosialisasi Kesiapan Karir yang Diselenggarakan Oleh Lembaga Kampus LP3I Kota Malang</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 14 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat14.jpg" alt="Sertifikat 14" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Kompetensi Keahlian TKJ</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">23 Februari 2026</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Ujian Kompetensi Keahlian Teknik Komputer dan Jaringan Tahun 2026 Peserta Telah Mengikuti UKK Dengan Hasil Akhir Ditetapkan Telah Kompeten</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Kompetensi Keahlian TKJ</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">23 Februari 2026</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Ujian Kompetensi Keahlian Teknik Komputer dan Jaringan Tahun 2026 Peserta Telah Mengikuti UKK Dengan Hasil Akhir Ditetapkan Telah Kompeten</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 15 -->
-      <div data-category="english" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="english" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat15.jpg" alt="Sertifikat 15" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat TOEIC SCORE 700</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">17 Agustus 2024</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Test Of English for International Communication (TOEIC) Dengan Meraih Score 700</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat TOEIC SCORE 700</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">17 Agustus 2024</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Test Of English for International Communication (TOEIC) Dengan Meraih Score 700</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 16 -->
-      <div data-category="academic" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="academic" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat16.jpg" alt="Sertifikat 16" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Tes Kemampuan Akademik (TKA)</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">5 Januari 2026</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta TES KEMAMPUAN AKADEMIK (TKA) Pada Jenjang SMK/SMA/Sederajat Pada Tanggal 3-4 November 2025</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Tes Kemampuan Akademik (TKA)</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">5 Januari 2026</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta TES KEMAMPUAN AKADEMIK (TKA) Pada Jenjang SMK/SMA/Sederajat Pada Tanggal 3-4 November 2025</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
       </div>
 
       <!-- Item 17 -->
-      <div data-category="others" class="cert-card bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
+      <div data-category="others" class="cert-card rounded-xl overflow-hidden border transition-all duration-300 group flex flex-col justify-between" style="background:#1A2744; border-color:#2E4070;">
         <div>
           <div class="relative overflow-hidden cursor-pointer aspect-[4/3]">
             <img src="img/sertifikat17.jpg" alt="Sertifikat 17" class="transition-transform duration-500 group-hover:scale-110 w-full h-full object-cover" onclick="openLightbox(this)">
           </div>
           <div class="p-4">
-            <h2 class="font-bold text-sm text-gray-200 card-title">Sertifikat Pelantikan Pramuka</h2>
-            <p class="text-[10px] text-blue-400 font-medium mt-1 uppercase">17 Juni 2024</p>
-            <p class="text-xs text-gray-400 mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">Sertifikat Peserta Perkemahan Pelantikan Penegak Bantara Pangkalan SMK Negeri 1 Doko pada 15-16 Juni Tahun 2024</p>
+            <h2 class="font-bold text-sm card-title" style="color:#F0ECD8;">Sertifikat Pelantikan Pramuka</h2>
+            <p class="text-[10px] font-medium mt-1 uppercase" style="color:#D4A843;">17 Juni 2024</p>
+            <p class="text-xs mt-2 line-clamp-3 group-hover:line-clamp-none transition-all duration-300" style="color:#A8B8CC;">Sertifikat Peserta Perkemahan Pelantikan Penegak Bantara Pangkalan SMK Negeri 1 Doko pada 15-16 Juni Tahun 2024</p>
           </div>
         </div>
-        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium text-blue-400 hover:text-blue-300 gap-1 mt-2">Lihat Dokumen Asli &rarr;</a></div>
+        <div class="p-4 pt-0"><a href="#" class="inline-flex items-center text-[11px] font-medium gap-1 mt-2" style="color:#D4A843;" onmouseover="this.style.color='#F0C96A'" onmouseout="this.style.color='#D4A843'">Lihat Dokumen Asli &rarr;</a></div>
+      </div>
+
+      <!-- Pesan Tidak Ditemukan -->
+      <div id="noResult" class="hidden text-center py-12 w-full col-span-full">
+        <p class="text-sm" style="color:#7A90A8;">Sertifikat yang kamu cari tidak ditemukan...</p>
       </div>
 
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="text-center py-8 text-xs mt-12 border-t" style="border-color:#2E4070; color:#7A90A8;">
+    <p>&copy; 2026 Ardha Tri Setyo Budi. All rights reserved.</p>
+  </footer>
+
   <!-- Lightbox Modal -->
   <div id="lightboxModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4">
     <button class="absolute top-5 right-5 text-4xl text-white hover:text-gray-400 transition" onclick="closeLightbox()">&times;</button>
-    <img id="lightboxImg" src="" alt="Zoom Sertifikat" class="max-h-[90vh] max-w-full rounded-md shadow-2xl border border-white/20">
+    <img id="lightboxImg" src="" alt="Zoom Sertifikat" class="max-h-[90vh] max-w-full rounded-md shadow-2xl" style="border: 1px solid rgba(212,168,67,0.3);">
   </div>
 
-  <!-- ================= JAVASCRIPT UPGRADED ================= -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const buttons = document.querySelectorAll('.filter-btn');
       const cards = document.querySelectorAll('.cert-card');
       const searchInput = document.getElementById('searchCertificate');
-      
+      const noResultDiv = document.getElementById('noResult');
+
       let activeCategory = 'all';
       let searchQuery = '';
 
-      // Fungsi Sinkronisasi Filter & Search
       function filterData() {
         cards.forEach(card => {
           const title = card.querySelector('.card-title').textContent.toLowerCase();
+          const description = card.querySelector('p.text-xs') ? card.querySelector('p.text-xs').textContent.toLowerCase() : '';
           const category = card.getAttribute('data-category');
-          
           const matchesCategory = (activeCategory === 'all' || category === activeCategory);
-          const matchesSearch = title.includes(searchQuery);
+          const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
 
           if (matchesCategory && matchesSearch) {
             card.classList.remove('hide');
@@ -431,31 +460,44 @@
             card.classList.add('hide');
           }
         });
+
+        // Hitung berapa kartu yang tidak disembunyikan
+        const visibleCards = document.querySelectorAll('.cert-card:not(.hide)').length;
+        if (visibleCards === 0) {
+          noResultDiv.classList.remove('hidden');
+        } else {
+          noResultDiv.classList.add('hidden');
+        }
       }
 
-      // Event Tombol Filter
       buttons.forEach(button => {
         button.addEventListener('click', function() {
           activeCategory = this.getAttribute('data-target');
 
           buttons.forEach(btn => {
-            btn.className = "filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-gray-900 text-gray-400 border border-gray-800 hover:border-gray-700 hover:text-gray-200 transition-all duration-300";
+            btn.style.background = '#1A2744';
+            btn.style.color = '#7A90A8';
+            btn.style.border = '1px solid #2E4070';
+            btn.style.boxShadow = 'none';
+            btn.classList.add('filter-btn-inactive');
           });
 
-          this.className = "filter-btn px-5 py-2 text-xs font-semibold rounded-full bg-blue-600 text-white border border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300";
-          
+          this.style.background = '#D4A843';
+          this.style.color = '#1A2744';
+          this.style.border = '1px solid #D4A843';
+          this.style.boxShadow = '0 0 15px rgba(212,168,67,0.35)';
+          this.classList.remove('filter-btn-inactive');
+
           filterData();
         });
       });
 
-      // Event Kolom Pencarian
       searchInput.addEventListener('input', function(e) {
         searchQuery = e.target.value.toLowerCase();
         filterData();
       });
     });
 
-    // Fungsi Lightbox Bawaan
     function openLightbox(img) {
       document.getElementById('lightboxImg').src = img.src;
       document.getElementById('lightboxModal').classList.remove('hidden');
